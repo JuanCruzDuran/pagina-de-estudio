@@ -1,0 +1,50 @@
+/* etiquetas */
+
+html{
+    font-size: 62.5%;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(207, 207, 207, 0.952);
+}
+header{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(218, 99, 19);
+    font-size: 3rem;
+    
+}
+header > div{
+    margin-right: 1rem;
+    margin-left: 1rem;
+    font-size: larger;
+  }
+h2{
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+}
+h3{
+    font-size: 3rem;
+}
+h4{
+    font-size: 2rem;
+}
+main > div{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: rgb(151, 182, 11);
+}
+main > div > div{
+    border-style:solid;
+}
+
+a{
+    color: black;
+    font-style: oblique;
+    font-size: 2rem;
+}
+
+
+.menu{
+    font-size: 3rem;
+}
