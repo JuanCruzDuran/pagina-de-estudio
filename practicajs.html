@@ -90,9 +90,12 @@
         <script src="javas.js"></script>
         
         <div>
+            <script>
+                setInterval(reloj,1000);
+            </script>
             <h1>Reloj</h1>
             <div id="hora"></div>
-            <input type="text" id="reloj">
+            <div id="reloj">0:0:0</div>
             <div id="tiempo">
             <button onclick="ponerTiempo(1)">1</button>
             <button onclick="ponerTiempo(2)">2</button>
@@ -104,11 +107,13 @@
             <button onclick="ponerTiempo(8)">8</button>
             <button onclick="ponerTiempo(9)">9</button>
             <button onclick="ponerTiempo(0)">0</button>
-            <button onclick="ponerTiempo(00)">00</button>
+            <button onclick="ponerTiempo('00')">00</button>
             <button><i class="fa-solid fa-delete-left"></i></button>
             </div>
             <div>
-                <button onclick="contador()"><i class="fa-solid fa-play"></i></button>
+                <button onclick="contador(1)"><i class="fa-solid fa-play"></i></button>
+                <button onclick="contador(2)"><i class="fa-solid fa-pause"></i></button>
+                <button onclick="contador(3)"><i class="fa-solid fa-repeat"></i></button>
             </div>
             
         </div>

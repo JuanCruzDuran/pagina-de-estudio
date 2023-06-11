@@ -205,16 +205,37 @@ function reloj() {
   reloj.innerHTML = `${ho}:${mins}:${secs}`;
 }
 
-setInterval(reloj,1000);
+var intervalo;
 
-function contador() {
-  var intervalo;
+function contador(param) {
   var reloj = document.getElementById('reloj');
-  
+  var ho = 0;
+  var mins = 0;
+  var secs = 1;
+  if(param === 1){
   intervalo = setInterval(function(){
-    reloj.value++;
-    reloj.value = String(reloj).padStart(8,'0');
+
+    reloj.innerHTML = `${ho}:${mins}:${secs}`;
+    secs++;
+    if(secs === 60){
+      secs = 0;
+      mins++;
+    }
+    if(mins === 60){
+      mins = 0;
+      ho++;
+    }
   },1000);
+  }
+  if(param === 2){
+    clearInterval(intervalo);
+  }
+  if(param === 3){
+    ho = 0;
+    mins = 0;
+    secs = 1;
+    reloj.innerHTML = "0:0:0";
+  }
 }
 
 function ponerTiempo(num) {
@@ -222,83 +243,4 @@ function ponerTiempo(num) {
   input.value += num;
 }
 
-//temporizador GPT
-// Obtener elementos del DOM
-const timeDisplay = document.getElementById('time-display');
-const increaseMinutesBtn = document.getElementById('increase-minutes');
-const decreaseMinutesBtn = document.getElementById('decrease-minutes');
-const increaseSecondsBtn = document.getElementById('increase-seconds');
-const decreaseSecondsBtn = document.getElementById('decrease-seconds');
-const startTimerBtn = document.getElementById('start-timer');
-
-let minutes = 0;
-let seconds = 0;
-let countdownInterval;
-
-// Función para actualizar la pantalla con el tiempo restante
-function updateDisplay() {
-  const displayMinutes = String(minutes).padStart(2, '0');
-  const displaySeconds = String(seconds).padStart(2, '0');
-  timeDisplay.textContent = `${displayMinutes}:${displaySeconds}`;
-}
-
-// Función para aumentar los minutos
-function increaseMinutes() {
-  minutes += 1;
-  updateDisplay();
-}
-
-// Función para disminuir los minutos
-function decreaseMinutes() {
-  if (minutes > 0) {
-    minutes -= 1;
-    updateDisplay();
-  }
-}
-
-// Función para aumentar los segundos
-function increaseSeconds() {
-  seconds += 1;
-  if (seconds >= 60) {
-    seconds = 0;
-    increaseMinutes();
-  }
-  updateDisplay();
-}
-
-// Función para disminuir los segundos
-function decreaseSeconds() {
-  if (seconds > 0) {
-    seconds -= 1;
-  } else if (minutes > 0) {
-    seconds = 59;
-    decreaseMinutes();
-  }
-  updateDisplay();
-}
-
-// Función para iniciar el temporizador
-function startTimer() {
-  if (countdownInterval) {
-    clearInterval(countdownInterval);
-  }
-  countdownInterval = setInterval(() => {
-    if (seconds > 0) {
-      seconds -= 1;
-    } else if (minutes > 0) {
-      minutes -= 1;
-      seconds = 59;
-    } else {
-      clearInterval(countdownInterval);
-    }
-    updateDisplay();
-  }, 1000);
-}
-
-// Agregar event listeners a los botones
-increaseMinutesBtn.addEventListener('click', increaseMinutes);
-decreaseMinutesBtn.addEventListener('click', decreaseMinutes);
-increaseSecondsBtn.addEventListener('click', increaseSeconds);
-decreaseSecondsBtn.addEventListener('click', decreaseSeconds);
-startTimerBtn.addEventListener('click', startTimer);
 
