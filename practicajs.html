@@ -13,10 +13,10 @@
 <body>
     <header>
         <div></div>
-        <div ><a href="index.html" class="menu">Menu</a> </div>
-        <div ><a href="practicajs.html" class="menu">JS</a></div>
-        <div ><a href="" class="menu">PY</a></div>
-        <div ><a href="https://github.com/" class="menu">GITHUB</a></div>
+        <div ><a href="index.html">Menu</a> </div>
+        <div ><a href="practicajs.html">JS</a></div>
+        <div ><a href="">PY</a></div>
+        <div ><a href="https://github.com/">GITHUB</a></div>
     </header>
     <main>
         <div class="proyecto">
@@ -89,13 +89,22 @@
       
         <script src="javas.js"></script>
         
-        <div>
+        <div class="proyecto">
             <script>
                 setInterval(reloj,1000);
             </script>
             <h1>Reloj</h1>
-            <div id="hora"></div>
-            <div id="reloj">0:0:0</div>
+            <div id="hora">00:00:00</div>
+            <div id="reloj">00:00:00</div>
+            <div id="teclasContador">
+                <button onclick="contador(1)" id="startContador" ><i class="fa-solid fa-play"></i></button>
+                <button onclick="contador(2)" disabled id="pauseContador"><i class="fa-solid fa-pause"></i></button>
+                <button onclick="contador(3)" disabled id="resetContador"><i class="fa-solid fa-repeat"></i></button>
+            </div>
+
+            <br><br>
+
+            <div id="timer"></div>
             <div id="tiempo">
             <button onclick="ponerTiempo(1)">1</button>
             <button onclick="ponerTiempo(2)">2</button>
@@ -107,26 +116,14 @@
             <button onclick="ponerTiempo(8)">8</button>
             <button onclick="ponerTiempo(9)">9</button>
             <button onclick="ponerTiempo(0)">0</button>
-            <button onclick="ponerTiempo('00')">00</button>
-            <button><i class="fa-solid fa-delete-left"></i></button>
+            <button onclick="temporizador(1)" id="tempBtn"><i class="fa-solid fa-play"></i></button>
+            <button onclick="borrarLast()" id="delBtn"><i class="fa-solid fa-delete-left"></i></button>
+            <button onclick="temporizador(2)" id="pausBtn"><i class="fa-solid fa-pause"></i></button>
             </div>
-            <div>
-                <button onclick="contador(1)"><i class="fa-solid fa-play"></i></button>
-                <button onclick="contador(2)"><i class="fa-solid fa-pause"></i></button>
-                <button onclick="contador(3)"><i class="fa-solid fa-repeat"></i></button>
-            </div>
+           
             
         </div>
     </main>
-    <div id="timer">
-        <h2>Temporizador GPT</h2>
-        <div id="time-display">00:00</div>
-        <button id="increase-minutes">Aumentar Minutos</button>
-        <button id="decrease-minutes">Disminuir Minutos</button>
-        <button id="increase-seconds">Aumentar Segundos</button>
-        <button id="decrease-seconds">Disminuir Segundos</button>
-        <button id="start-timer">Iniciar Temporizador</button>
-      </div>
     
     
 </body>

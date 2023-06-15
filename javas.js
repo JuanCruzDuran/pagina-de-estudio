@@ -202,20 +202,23 @@ function reloj() {
   var ho = date.getHours()
   var mins = date.getMinutes()
   var secs = date.getSeconds()
-  reloj.innerHTML = `${ho}:${mins}:${secs}`;
+  reloj.innerHTML =  addLeadingZero(ho) + ":" + addLeadingZero(mins) + ":" + addLeadingZero(secs);
 }
 
 var intervalo;
 
 function contador(param) {
   var reloj = document.getElementById('reloj');
+  var starbtn = document.getElementById('startContador');
+  var reset = document.getElementById('resetContador');
+  var pause = document.getElementById('pauseContador');
   var ho = 0;
   var mins = 0;
   var secs = 1;
   if(param === 1){
   intervalo = setInterval(function(){
 
-    reloj.innerHTML = `${ho}:${mins}:${secs}`;
+    reloj.innerHTML = addLeadingZero(ho) + ":" + addLeadingZero(mins) + ":" + addLeadingZero(secs);
     secs++;
     if(secs === 60){
       secs = 0;
@@ -226,21 +229,83 @@ function contador(param) {
       ho++;
     }
   },1000);
+  pause.disabled = false;
+  starbtn.disabled = true;
   }
   if(param === 2){
     clearInterval(intervalo);
+    reset.disabled = false;
   }
   if(param === 3){
     ho = 0;
     mins = 0;
     secs = 1;
-    reloj.innerHTML = "0:0:0";
+    reloj.innerHTML = "00:00:00";
+    starbtn.disabled = false;
+    reset.disabled = true;
+    pause.disabled = true;
   }
 }
 
 function ponerTiempo(num) {
-  var input = document.getElementById('reloj');
-  input.value += num;
+  var input = document.getElementById('timer');
+  var tiempo = num;
+  
+  if(input.innerText.length > 5){
+    return;
+  }
+  else{
+    input.innerHTML += tiempo;
+  }
+  
+
+}
+function borrarLast(){
+  var input = document.getElementById('timer');
+  var contenido = input.innerText;
+
+  if (contenido.length > 0) {
+    var nuevoValor = contenido.substring(0, contenido.length - 1);
+    input.innerText = nuevoValor;
+  }
 }
 
+function convertToTime() {
+  var timer = document.getElementById('timer');
+  var seconds = timer.innerText;
+  var hours = Math.floor(seconds / 3600);
+  var minutes = Math.floor((seconds % 3600) / 60);
+  var remainingSeconds = seconds % 60;
 
+  var timeString = addLeadingZero(hours) + ":" + addLeadingZero(minutes) + ":" + addLeadingZero(remainingSeconds);
+    timer.innerText = timeString;
+}
+
+function addLeadingZero(number) {
+  return number < 10 ? "0" + number : number;
+}
+
+function temporizador(num){
+  var timer = document.getElementById('timer');
+  var tiempo = parseInt(timer.innerHTML);
+  var delBtn = document.getElementById('delBtn')
+  var tempBtn = document.getElementById('tempBtn')
+  
+  if(num === 1){
+  delBtn.disabled=true
+  intervalo = setInterval(function(){
+    tiempo--;
+    timer.innerText = tiempo
+    if(tiempo === 0 ){
+      clearInterval(intervalo);
+    };  
+  },1000)
+  tempBtn.disabled = true;
+
+  }
+  if(num === 2){
+    clearInterval(intervalo);
+    tempBtn.disabled = false;
+    delBtn.disabled = false;
+  }
+}

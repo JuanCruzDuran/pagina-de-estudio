@@ -25,7 +25,9 @@ header{
 header > div{
   margin-right: 1rem;
   margin-left: 1rem;
-  
+}
+header > div > a{
+    font-size: 3rem;
 }
 a{
     color: black;
@@ -65,9 +67,17 @@ a{
     font-size: 48px;
     margin-bottom: 20px;
   }
-  
-
-
-.menu{
-    font-size: 3rem;
+#teclasContador > button{
+    size: 2rem;
 }
+#timer{
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+    height: 3rem;
+}
+@media only screen and (max-width: 600px) {
+    header > div > a{
+        font-size: 2rem;
+    };
+    }
