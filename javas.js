@@ -298,6 +298,8 @@ function temporizador(num){
     timer.innerText = tiempo
     if(tiempo === 0 ){
       clearInterval(intervalo);
+      tempBtn.disabled = false;
+      delBtn.disabled = false;
     };  
   },1000)
   tempBtn.disabled = true;
