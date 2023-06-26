@@ -3,6 +3,10 @@ function prueba(){
     console.log("primera function");
 };
 
+function id(param){
+  return document.getElementById(`${param}`);
+};
+
 //calculadora
 var numero1 = '';
 var numero2 = '';
@@ -205,6 +209,7 @@ function reloj() {
   reloj.innerHTML =  addLeadingZero(ho) + ":" + addLeadingZero(mins) + ":" + addLeadingZero(secs);
 }
 
+var intervaloCont;
 var intervalo;
 
 function contador(param) {
@@ -216,7 +221,7 @@ function contador(param) {
   var mins = 0;
   var secs = 1;
   if(param === 1){
-  intervalo = setInterval(function(){
+  intervaloCont = setInterval(function(){
 
     reloj.innerHTML = addLeadingZero(ho) + ":" + addLeadingZero(mins) + ":" + addLeadingZero(secs);
     secs++;
@@ -233,7 +238,7 @@ function contador(param) {
   starbtn.disabled = true;
   }
   if(param === 2){
-    clearInterval(intervalo);
+    clearInterval(intervaloCont);
     reset.disabled = false;
   }
   if(param === 3){
@@ -305,9 +310,16 @@ function temporizador(num){
   tempBtn.disabled = true;
 
   }
-  if(num === 2){
+  if(num === 2 || tiempo < 1){
     clearInterval(intervalo);
     tempBtn.disabled = false;
     delBtn.disabled = false;
   }
+}
+
+function randomImg() {
+  var imagen = document.getElementById("imgR");
+  var srcActual = imagen.src;
+  var timestamp = new Date().getTime(); // Genera un timestamp único
+  imagen.src = srcActual + "?timestamp=" + timestamp;
 }

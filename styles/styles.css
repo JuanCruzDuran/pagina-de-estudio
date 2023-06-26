@@ -9,7 +9,7 @@ header{
     justify-content: center;
     background-color: rgb(218, 99, 19);
     font-size: 3rem;
-    
+    position:fixed;
 }
 header > div{
     margin-right: 1rem;

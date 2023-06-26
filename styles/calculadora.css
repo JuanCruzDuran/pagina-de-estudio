@@ -35,11 +35,13 @@ a{
     
 }
 
+
 .proyecto{
     display: grid;
     grid-template-columns: auto;
     padding: 10%;
     background-color: aqua;
+    justify-content: center;
 }
 
 
@@ -75,6 +77,14 @@ a{
     justify-content: center;
     background-color: antiquewhite;
     height: 3rem;
+}
+#tiempo > button{
+    height: 5rem;
+    width: 5rem;
+}
+#galeriaR{
+    display: flex;
+    justify-content: center;
 }
 @media only screen and (max-width: 600px) {
     header > div > a{
