@@ -74,13 +74,13 @@
         <br><br>
         <div class="proyecto">
             <h1>To do list</h1>
-            <input type="text" id="notas" placeholder="Agregar tarea">
-            <button onclick="notaNueva()">Guardar</button>
+            <form id="formulario">
+              <input type="text" id="notas" placeholder="Agregar tarea">
+              <button type="submit">Guardar</button>
+            </form>
             <br><br>
-            <div id="listaToDo">
-                
-            </div>
-        </div>
+            <div id="listaToDo"></div>
+          </div>
         <br><br>
 
         <h1>To do list GPT</h1>
@@ -124,12 +124,25 @@
            
         </div>
 
-        <div>
+        <div class="proyecto">
             <h1> Galeria </h1>
             <h2>imagen random</h2>
+            <br>
             <div id="galeriaR">
                 <img src="https://picsum.photos/200/300" id="imgR">
                 <button onclick="randomImg()"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <br>
+            
+            <h2>imagenes</h2>
+            
+            <br>
+
+            <div id="img1">
+                <button onclick="pasarImg(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                <img onclick="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIqIlGHgf1YJfPEZ7saB8WSOYj5nqekiCvqA&usqp=CAU" id="galeria1" alt="">
+                <button onclick="pasarImg(1)"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>
 
