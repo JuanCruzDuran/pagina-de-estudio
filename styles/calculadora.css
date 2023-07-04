@@ -27,6 +27,8 @@ header{
     justify-content: center;
     background-color: rgb(218, 99, 19);
     font-size: 3rem;
+    position: sticky;
+    top: 0;
     
 }
 header > div{

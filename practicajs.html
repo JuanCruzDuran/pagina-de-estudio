@@ -49,29 +49,6 @@
 
             </div>
         </div>
-        <div>
-            <h1>CalculadoraGPT</h1>
-            <input type="text" id="resultado" readonly>
-            <br>
-            <button onclick="agregarNumero(1)">1</button>
-            <button onclick="agregarNumero(2)">2</button>
-            <button onclick="agregarNumero(3)">3</button>
-            <!-- Agrega botones para los demás números -->
-            <br>
-            <button onclick="agregarPunto()">.</button>
-            <!-- Agrega botón para el punto decimal -->
-            <br>
-            <button onclick="realizarOperacion('+')">+</button>
-            <button onclick="realizarOperacion('-')">-</button>
-            <button onclick="realizarOperacion('*')">*</button>
-            <button onclick="realizarOperacion('/')">/</button>
-            <!-- Agrega botones para otros operadores -->
-            <br>
-            <button onclick="calcularResultado()">=</button>
-            <button onclick="borrarP()">C</button>
-        </div>
-
-        <br><br>
         <div class="proyecto">
             <h1>To do list</h1>
             <form id="formulario">
@@ -81,12 +58,7 @@
             <br><br>
             <div id="listaToDo"></div>
           </div>
-        <br><br>
 
-        <h1>To do list GPT</h1>
-        <input type="text" id="taskInput" placeholder="Agregar tarea">
-        <button onclick="addTask()">Agregar</button>
-        <ul id="taskList"></ul>
       
         <script src="javas.js"></script>
         
@@ -143,6 +115,34 @@
                 <button onclick="pasarImg(-1)"><i class="fa-solid fa-chevron-left"></i></button>
                 <img onclick="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIqIlGHgf1YJfPEZ7saB8WSOYj5nqekiCvqA&usqp=CAU" id="galeria1" alt="">
                 <button onclick="pasarImg(1)"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <div>
+            
+
+        
+
+        <div class="proyecto">
+            <h1>formulario</h1>
+            <form action="">
+                    <h4>Nombre</h4> <input type="text" name="nombre"  maxlength="100" id="fnombre">
+
+                    <h4>Apellido</h4> <input type="text" name="apellido"  maxlength="100" id="fapellido">
+
+                    <h4>Nombre de usuario</h4> <input type="text" name="usuario" maxlength="100" id="fnombreu">
+                    
+                    <h4>Email</h4> <input type="text" name="email"  id="femail" maxlength="300" placeholder="ejemplo123@gmail.com">
+
+                    <h4>Telefono</h4> <input type="text" name="telefono"  id="ftel">
+
+                    <h4>Sexo</h4>
+                    <input type="radio" name="sexo" id="hombre" checked>Hombre
+                    <input type="radio" name="sexo" id="mujer">Mujer
+                    
+                </form>
+                <button onclick="comprobarForm()">save</button>
+
             </div>
         </div>
 

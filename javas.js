@@ -81,65 +81,7 @@ function borrar(){
 
 
 
-  //calculadora chatgpt
-  var operando1 = '';
-  var operando2 = '';
-  var operador = '';
-  
-  function agregarNumero(numero) {
-    if (operador === '') {
-      operando1 += numero;
-    } else {
-      operando2 += numero;
-    }
-  }
-  
-  function agregarPunto() {
-    if (operador === '') {
-      if (!operando1.includes('.')) {
-        operando1 += '.';
-      }
-    } else {
-      if (!operando2.includes('.')) {
-        operando2 += '.';
-      }
-    }
-  }
-  
-  function realizarOperacion(op) {
-    operador = op;
-  }
-  
-  function calcularResultado() {
-    var resultadoElement = document.getElementById('resultado');
-    var resultado;
-  
-    switch (operador) {
-      case '+':
-        resultado = parseFloat(operando1) + parseFloat(operando2);
-        break;
-      case '-':
-        resultado = parseFloat(operando1) - parseFloat(operando2);
-        break;
-      case '*':
-        resultado = parseFloat(operando1) * parseFloat(operando2);
-        break;
-      case '/':
-        resultado = parseFloat(operando1) / parseFloat(operando2);
-        break;
-      default:
-        resultado = '';
-    }
-  
-    resultadoElement.value = resultado;
-  }
-  
-  function borrarP() {
-    operando1 = '';
-    operando2 = '';
-    operador = '';
-    document.getElementById('resultado').value = '';
-  }
+
   
 //lista to do
 
@@ -263,31 +205,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-//to do list GPT
-function addTask() {
-  var input = document.getElementById("taskInput");
-  var task = input.value;
-
-  if (task === "") {
-    alert("Por favor, ingresa una tarea.");
-    return;
-  }
-
-  var taskList = document.getElementById("taskList");
-  var li = document.createElement("li");
-  li.appendChild(document.createTextNode(task));
-
-  var deleteButton = document.createElement("button");
-  deleteButton.appendChild(document.createTextNode("Eliminar"));
-  deleteButton.onclick = function() {
-    taskList.removeChild(li);
-  };
-
-  li.appendChild(deleteButton);
-  taskList.appendChild(li);
-
-  input.value = "";
-}
 
 //Reloj
 function reloj() {
@@ -441,4 +358,22 @@ function pasarImg(param) {
 
   // Establecer la imagen actual
   img.src = imagenes[indiceActual];
+}
+
+function comprobarForm() {
+  var nombre = document.getElementById("fnombre");
+  var apellido = document.getElementById("fapellido");
+  var nombreU = document.getElementById("fnombreu");
+  var email = document.getElementById("femail");
+  var telefono = document.getElementById("ftel");
+
+  if(nombre.value.length === 0 || apellido.value.length === 0){
+    alert('el campo nombre,apellido o telefono es invalido');
+  }
+  if(telefono.value.length !== 10){
+    alert("numero de telefono invalido");
+  }
+  if(!email.value.endsWith("@gmail.com")){
+    alert("correo no valido");
+  }
 }
